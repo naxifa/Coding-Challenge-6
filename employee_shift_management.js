@@ -9,6 +9,17 @@ const employees = [
     { name: 'Emily', shifts: [{ day: 'Friday', hours: 8 }] }
  ];
 
- console.log(employees);
+ console.log(employees); // Array of employee shift details
 
+
+ // Task 2 - Creating a Function to Display Employee Shift Details 
+
+ function displayEmployeeShifts (employee) {
+
+    let shiftDetails = employee.shifts.map(shift => `${shift.day}: ${shift.hours} hours`);
+
+    console.log(`Shifts for ${employee.name}: ${shiftDetails}`)};
+
+employees.forEach(displayEmployeeShifts);
+ 
  
