@@ -38,7 +38,7 @@ if (!employee) {
     console.log(`Employee ${employeeName} not found.`);
 }
 // Looking for already assigned shifts 
-let existingShift = employee.shifts.some(shift => shift.day === day);
+let existingShift = employee.shifts.find(shift => shift.day === day);
 if (existingShift) {
     console.log(`${employeeName} is already assigned a shift on ${day}.`);
 
@@ -76,7 +76,7 @@ if (employee) {
 function listAvailableEmployees (day) {
 
      // Filtering employees who do not have a shift on the given day
-     let availableEmployees = employees.filter(employee => !employee.shifts.some(shift => shift.day === day)
+     let availableEmployees = employees.filter(employee => !employee.shifts.find(shift => shift.day === day)
     );
 
     // If the filtered array is empty, log an error message
