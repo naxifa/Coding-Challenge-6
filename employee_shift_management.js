@@ -9,7 +9,7 @@ const employees = [
     { name: 'Emily', shifts: [{ day: 'Friday', hours: 8 }] }
  ];
 
- console.log(employees); // Array of employee shift details
+ console.log(employees); // Prints array of employee shift details
 
 
  // Task 2 - Creating a Function to Display Employee Shift Details 
@@ -33,19 +33,19 @@ function assignShift (employeeName,day,hours) {
 // Looking for employee by their name
 let employee = employees.find(employee => employee.name === employeeName); 
 
-// Checking if employee name matches or not, if not then error messagae will be displayed
+// Checking if employee name matches or not, if not then error message will be displayed
 if (!employee) {
     console.log(`Employee ${employeeName} not found.`);
 }
 // Looking for already assigned shifts 
 let existingShift = employee.shifts.find(shift => shift.day === day);
-if (existingShift) {
-    console.log(`${employeeName} is already assigned a shift on ${day}.`);
+    if (existingShift) {
+       console.log(`${employeeName} is already assigned a shift on ${day}.`);
 
 } else {
     // If no shift is assigned on that day, this will assign the new shift
     employee.shifts.push({ day, hours });
-    console.log(`Assigned ${hours} hours on ${day} to ${employeeName}.`);
+       console.log(`Assigned ${hours} hours on ${day} to ${employeeName}.`);
 }
 }
 // Assigning extra shift to David
@@ -59,7 +59,7 @@ assignShift("David", "Tuesday", "5");
 function calculateTotalHours (employee) {
 
     // Calculating total hours
-    let totalHours = employee.shifts.reduce((sum,shift) => sum + shift.hours, 0);
+let totalHours = employee.shifts.reduce((sum,shift) => sum + shift.hours, 0);
 
     console.log(`${employee.name} - Worked ${totalHours} hours this week`);
     return totalHours;
@@ -78,18 +78,11 @@ function listAvailableEmployees (day) {
      // Filtering employees who do not have a shift on the given day
      let availableEmployees = employees.filter(employee => !employee.shifts.find(shift => shift.day === day)
     );
-
-    // If the filtered array is empty, log an error message
-    if (availableEmployees.length === 0) {
-        console.log(`No employees available on ${day}`);
-    } else {
         console.log(`Employees available on ${day}:`);
         availableEmployees.forEach(employee => {
              console.log(employee.name);
         });
     }
-}
-
 // Calling the function
 listAvailableEmployees("Monday");  
 
