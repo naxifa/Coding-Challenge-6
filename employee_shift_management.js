@@ -92,4 +92,4 @@ function listAvailableEmployees (day) {
 
 // Calling the function
 listAvailableEmployees("Monday");  
-listAvailableEmployees("Tuesday"); 
+
